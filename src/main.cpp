@@ -265,7 +265,7 @@ In the `setup()` function it is important to respect the sequence of operations:
 #include <MQTT/custom/custom.h>
 
 // Other libraries required by the specific application
-#include <Bounce2.h>
+
 
 // your MQTT Broker:
 // uncomment one of following #include to set the MQTT broker.
@@ -273,23 +273,23 @@ In the `setup()` function it is important to respect the sequence of operations:
 // #include <MQTT/broker/raspi4.h>
 // #include <MQTT/broker/mosquitto.h>
 
-// simple digital input
-Bounce button = Bounce();
+
 
 void setup()
 {
   Serial.begin(115200);
-  Serial.println("WiFi Example 05: connection to an MQTT broker, control of three LEDs and monitoring of a button");
+  
 
   // configures three test LEDs controlled via MQTT messages
   // interpreting messages and executing commands is carried out 
   // in the file MQTT/custom/parseMessage.cpp  (to be customized)
-  pinMode(pinYellow, OUTPUT);
-  pinMode(pinRed, OUTPUT);
-  pinMode(pinBlue, OUTPUT);
+  pinMode(pinPlug01, OUTPUT);
+  pinMode(pinPlug02, OUTPUT);
+  pinMode(pinPlug03, OUTPUT);
+  pinMode(pinPlug04, OUTPUT);
 
-  // Configure a digital input as a button managed by Bounce2.h
-  button.attach(pinButton, INPUT_PULLUP);
+  // Configure a digital input
+  
 
   // uses the macAddress() method of the WiFi object
   Serial.println();
@@ -308,32 +308,5 @@ void setup()
 
 void loop()
 {
-  // Update the Bounce instance (YOU MUST DO THIS EVERY LOOP)
-  button.update();
-
-  if (button.fell())
-  {
-    const char msgButton[] = "Button pressed";
-    Serial.println(msgButton);
-
-    // publish on topic outTopic
-    if(mqttClient.connected()) {
-      
-      uint16_t res = 0;
-      res = mqttClient.publish(publishedTopics.get("outTopic").c_str(),0,false, msgButton, strlen(msgButton),false, 0);
-    }
-  } else if (button.rose())
-  {
-    const char msgButton[] = "Button released";
-    Serial.println(msgButton);
-
-    // publish on topic outTopic
-    if(mqttClient.connected()) {
-      
-      uint16_t res = 0;
-      res = mqttClient.publish(publishedTopics.get("outTopic").c_str(),0,false, msgButton, strlen(msgButton),false, 0);
-    }
-  }
-
   vTaskDelay(pdMS_TO_TICKS(100));
 }

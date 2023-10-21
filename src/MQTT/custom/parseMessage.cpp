@@ -18,27 +18,35 @@ void parseMessage(char *topic, char *payload, AsyncMqttClientMessageProperties p
 
     // to be customized
 
-    // Yellow LED control
-    // a message has arrived from yellowOnOffTopic
-    if (strcmp(topic, subscribedTopics.get("yellowOnOffTopic").c_str()) == 0)
+    // Plug 01 control
+    // a message has arrived from plug1OnOffTopic
+    if (strcmp(topic, subscribedTopics.get("plug1OnOffTopic").c_str()) == 0)
     {
-        // Control on/off yellow LED from payload
-        driveOnOffYellow(data);
+        // Control on/off Plug 01 from payload
+        driveOnOffPlug01(data);
     }
 
-    // Red LED control
-    // a message has arrived from redOnOffTopic
-    else if (strcmp(topic, subscribedTopics.get("redOnOffTopic").c_str()) == 0) 
+    // Plug 02 control
+    // a message has arrived from plug2OnOffTopic
+    else if (strcmp(topic, subscribedTopics.get("plug2OnOffTopic").c_str()) == 0) 
     {
-        // Control on/off red LED from payload
-        driveOnOffRed(data);
+        // Control on/off Plug 02 from payload
+        driveOnOffPlug02(data);
     }
 
-    // Blue LED control
-    // a message has arrived from blueOnOffTopic
-    else if (strcmp(topic, subscribedTopics.get("blueOnOffTopic").c_str()) == 0) 
+    // Plug 03 control
+    // a message has arrived from plug3OnOffTopic
+    else if (strcmp(topic, subscribedTopics.get("plug3OnOffTopic").c_str()) == 0) 
     {
-        // Control on/off blue LED from payload
-        driveOnOffBlue(data);
+        // Control on/off Plug 03 from payload
+        driveOnOffPlug03(data);
+    }    
+
+    // Plug 04 control
+    // a message has arrived from plug4OnOffTopic
+    else if (strcmp(topic, subscribedTopics.get("plug4OnOffTopic").c_str()) == 0) 
+    {
+        // Control on/off Plug 04 from payload
+        driveOnOffPlug04(data);
     }    
 }

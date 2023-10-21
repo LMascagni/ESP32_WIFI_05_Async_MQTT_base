@@ -8,14 +8,14 @@ Dictionary<String, String> publishedTopics = Dictionary<String, String>();
 
 // Compile the dictionary of subscribed topics (to be customized)
 void compileSubTopics(Dictionary<String, String> &subTopics) {
-  // Yellow LED control subscribed topic  
-  subTopics.set("yellowOnOffTopic", thisClient "/yellowTopic");
-  // Red LED control subscribed topic
-  subTopics.set("redOnOffTopic", thisClient "/redTopic");
-  // Blue LED control subscribed topic
-  subTopics.set("blueOnOffTopic", thisClient "/blueTopic");
-  // Subscribed topic for printing messages
-  subTopics.set("inputTopic", thisClient "/input");
+  // Plug 01 control subscribed topic  
+  subTopics.set("plug1OnOffTopic", thisClient "/plug1");
+  // Plug 02 control subscribed topic
+  subTopics.set("plug2OnOffTopic", thisClient "/plug2");
+  // Plug 03 control subscribed topic
+  subTopics.set("plug3OnOffTopic", thisClient "/plug3");
+  // Plug 04 topic for printing messages
+  subTopics.set("plug4OnOffTopic", thisClient "/plug4");
 }
 
 // Compile the dictionary of published topics (to be customized)
