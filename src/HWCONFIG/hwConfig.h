@@ -7,10 +7,10 @@
 // output pin
 #define pinPlug01 32
 #define pinPlug02 33
-#define pinPlug03 34
-#define pinPlug04 35
+#define pinPlug03 12
+#define pinPlug04 14
 
 // WiFi connection status indicator
-#define pinWiFiConnected 23
+#define pinWiFiConnected 25
 
 #endif
