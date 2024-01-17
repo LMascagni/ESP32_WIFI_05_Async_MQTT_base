@@ -4,9 +4,6 @@
 // Control on/off Plug 01 from payload
 void driveOnOffPlug01(char *data)
 {
-    Serial.println(data);
-    Serial.println(strncmp(data, "0", 1));
-    Serial.println(strncmp(data, "1", 1));
     if (strncmp(data, "0", 1) == 0)
     {
         digitalWrite(pinPlug01, LOW);

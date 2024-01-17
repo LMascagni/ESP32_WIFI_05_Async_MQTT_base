@@ -273,8 +273,6 @@ In the `setup()` function it is important to respect the sequence of operations:
 // #include <MQTT/broker/raspi4.h>
 // #include <MQTT/broker/mosquitto.h>
 
-
-
 void setup()
 {
   Serial.begin(115200);
@@ -310,3 +308,4 @@ void loop()
 {
   vTaskDelay(pdMS_TO_TICKS(100));
 }
+
